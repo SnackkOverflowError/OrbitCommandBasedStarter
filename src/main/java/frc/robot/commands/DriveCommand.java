@@ -28,8 +28,7 @@ public class DriveCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.drivetrain.talonL.set(ControlMode.PercentOutput, Robot.m_oi.getDriverLeftJoystick());
-    Robot.drivetrain.talonR.set(ControlMode.PercentOutput, Robot.m_oi.getDriverRightJoystick());
+    Robot.drivetrain.drive(Robot.m_oi.getDriverLeftJoystick(), Robot.m_oi.getDriverRightJoystick());
   }
 
   // Make this return true when this Command no longer needs to run execute()

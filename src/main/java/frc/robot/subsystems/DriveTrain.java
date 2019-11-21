@@ -62,7 +62,7 @@ public class DriveTrain extends Subsystem {
 
 }
 
-  private void drive(double left, double right) {
+  public void drive(double left, double right) {
     talonR.set(ControlMode.PercentOutput, right);
     talonL.set(ControlMode.PercentOutput, left);
   }

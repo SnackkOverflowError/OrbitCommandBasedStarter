@@ -43,7 +43,12 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
-  XboxController driver = new XboxController(0);
+  public XboxController driver;
+
+  public OI(int driverPort) {
+    this.driver = new XboxController(driverPort);
+  }
+  
 
   public static double deadzone(double input, double deadzone) {
     if(Math.abs(input) <= deadzone)

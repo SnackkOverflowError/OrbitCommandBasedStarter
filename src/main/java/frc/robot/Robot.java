@@ -37,7 +37,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
+    m_oi = new OI(RobotMap.CONTROLLER_PORT_DRIVER);
+    
     drivetrain = new DriveTrain(
       RobotMap.DRIVETRAIN_CAN_ID_LEFT_FRONT_MASTER,
       RobotMap.DRIVETRAIN_CAN_ID_RIGHT_FRONT_MASTER,
