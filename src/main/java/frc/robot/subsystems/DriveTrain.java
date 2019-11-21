@@ -14,10 +14,14 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.DriveCommand;
 
 /**
  * Add your docs here.
- */
+ */// controlling this subsystem
+  // here. Call these from Commands.
+
+ 
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
@@ -67,5 +71,7 @@ public class DriveTrain extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+
+    setDefaultCommand(new DriveCommand());
   }
 }
