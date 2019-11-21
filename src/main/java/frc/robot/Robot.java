@@ -24,8 +24,13 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    drive = new DrivetrainSubsystem();
+    public static final DrivetrainSubsystem drivetrain = new DrivetrainSubsystem(
+        RobotMap.DRIVETRAIN_CAN_ID_LEFT_FRONT_MASTER,
+    RobotMap.DRIVETRAIN_CAN_ID_RIGHT_FRONT_MASTER,
+    RobotMap.DRIVETRAIN_CAN_ID_LEFT_REAR_SLAVE,
+    RobotMap.DRIVETRAIN_CAN_ID_RIGHT_REAR_SLAVE);
   }
+  
 
   @Override
   public void robotPeriodic() {
