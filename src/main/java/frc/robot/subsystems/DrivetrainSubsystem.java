@@ -16,8 +16,8 @@ import edu.wpi.first.wpilibj.Victor;
 public class DrivetrainSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private Victor motorLeft = new Victor(1);
-  private Victor motorRight = new Victor(2);
+  //private Victor motorLeft = new Victor(1);
+  //private Victor motorRight = new Victor(2);
 
   public WPI_TalonSRX talonL;
   public WPI_TalonSRX talonR;
@@ -31,11 +31,11 @@ public class DrivetrainSubsystem extends Subsystem {
   public void drive(double speed, double turn){
 
     // Setting motors
-    motorLeft.set(speed + turn);
-    motorRight.set(speed + turn);
+    //motorLeft.set(speed + turn);
+    //motorRight.set(speed + turn);
 
-    talonL.set(ControlMode.PercentOutput,speed);
-    talonR.set(ControlMode.PercentOutput, speed);
+    talonL.set(ControlMode.PercentOutput,speed - turn);
+    talonR.set(ControlMode.PercentOutput, speed + turn);
   }
 
   public DrivetrainSubsystem(int masterL, int masterR, int slaveL, int slaveR) {

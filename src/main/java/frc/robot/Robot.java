@@ -16,7 +16,7 @@ public class Robot extends TimedRobot {
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+  static DrivetrainSubsystem drivetrain;
 
   @Override
   public void robotInit() {
@@ -24,7 +24,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
-    public static final DrivetrainSubsystem drivetrain = new DrivetrainSubsystem(
+    drivetrain = new DrivetrainSubsystem(
         RobotMap.DRIVETRAIN_CAN_ID_LEFT_FRONT_MASTER,
     RobotMap.DRIVETRAIN_CAN_ID_RIGHT_FRONT_MASTER,
     RobotMap.DRIVETRAIN_CAN_ID_LEFT_REAR_SLAVE,
