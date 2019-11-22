@@ -1,4 +1,4 @@
-package frc.robot.subsystems;
+package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
@@ -7,7 +7,7 @@ public class DriveCommand extends Command {
   public DriveCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.drive);
+    requires(Robot.drivetrain);
 
   }
 
@@ -24,10 +24,10 @@ public class DriveCommand extends Command {
 
     if(Robot.m_oi.getTriggerLeft() == 0)
     {
-      Robot.drive.drive(-Robot.m_oi.getTriggerLeft(), Robot.m_oi.getJoyStickLeft());
+      Robot.drivetrain.drive(-Robot.m_oi.getTriggerLeft(), Robot.m_oi.getJoyStickLeft());
     }
     else{
-      Robot.drive.drive(Robot.m_oi.getTriggerRight(), Robot.m_oi.getJoyStickLeft());
+      Robot.drivetrain.drive(Robot.m_oi.getTriggerRight(), Robot.m_oi.getJoyStickLeft());
     }
 
   }
