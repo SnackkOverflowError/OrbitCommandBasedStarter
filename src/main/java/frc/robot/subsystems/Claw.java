@@ -47,20 +47,20 @@ public class Claw extends Subsystem {
     clawSolenoidTop.set(state);
   }
 
-  public void setClawState(Position pos) {
-    if(pos == OPEN_GENERAL) {
-      setTopSolenoid(true);
-      setBottomSolenoid(true);
-    }
-    else if(pos == CLOSED) {
-      setTopSolenoid(false);
-      setBottomSolenoid(false);
-    }
-    else {
-      setTopSolenoid(false);
-      setBottomSolenoid(true);
-    }
-  }
+  // public void setClawState(Position pos) {
+  //   if(pos == OPEN_GENERAL) {
+  //     setTopSolenoid(true);
+  //     setBottomSolenoid(true);
+  //   }
+  //   else if(pos == CLOSED) {
+  //     setTopSolenoid(false);
+  //     setBottomSolenoid(false);
+  //   }
+  //   else {
+  //     setTopSolenoid(false);
+  //     setBottomSolenoid(true);
+  //   }
+  // }
 
 
   @Override
