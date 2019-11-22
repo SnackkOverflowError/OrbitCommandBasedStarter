@@ -33,6 +33,9 @@ public class DrivetrainSubsystem extends Subsystem {
     // Setting motors
     motorLeft.set(speed + turn);
     motorRight.set(speed + turn);
+
+    talonL.set(ControlMode.PercentOutput,speed);
+    talonR.set(ControlMode.PercentOutput, speed);
   }
 
   public DrivetrainSubsystem(int masterL, int masterR, int slaveL, int slaveR) {
@@ -64,7 +67,7 @@ public class DrivetrainSubsystem extends Subsystem {
     this.victorL.follow(this.talonL);
     this.victorR.follow(this.talonR);
 
-    talonR.set(ControlMode.PercentOutput, speed);
+    
     
   }
 
