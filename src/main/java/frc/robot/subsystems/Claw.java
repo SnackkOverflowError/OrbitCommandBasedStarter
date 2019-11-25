@@ -25,6 +25,7 @@ public class Claw extends Subsystem {
 
   private Solenoid clawSolenoidTop = new Solenoid(RobotMap.CLAW_SOLENOID_CHANNEL_TOP_PISTON);
   private Solenoid clawSolenoidBottom = new Solenoid(RobotMap.CLAW_SOLENOID_CHANNEL_BOTTOM_PISTON);
+  private Solenoid clawWrist = new Solenoid(RobotMap.CLAW_SOLENOID_CHANNEL_WRIST_PISTON);
 
   private DigitalInput cargoSensor = new DigitalInput(RobotMap.CLAW_DIO_CHANNEL_CARGO_DETECT);
 
@@ -47,12 +48,16 @@ public class Claw extends Subsystem {
     clawSolenoidTop.set(state);
   }
 
+  public void setWrist(boolean state) {
+    clawWrist.set(state);
+  }
+
   public void setClawState(Position pos) {
-    if(pos == OPEN_GENERAL) {
+    if(pos == Position.OPEN_GENERAL) {
       setTopSolenoid(true);
       setBottomSolenoid(true);
     }
-    else if(pos == CLOSED) {
+    else if(pos == Position.CLOSED) {
       setTopSolenoid(false);
       setBottomSolenoid(false);
     }
