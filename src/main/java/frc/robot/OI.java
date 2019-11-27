@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -39,4 +42,26 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
+
+  public XboxController driver;
+
+  public OI(int driverPort) {
+    this.driver = new XboxController(driverPort);
+  }
+  
+
+  public static double deadzone(double input, double deadzone) {
+    if(Math.abs(input) <= deadzone)
+      return 0;
+    else
+      return input;
+  }
+
+  public double getDriverLeftJoystick() {
+    return deadzone(driver.getY(Hand.kLeft), 0.1);
+  }
+
+  public double getDriverRightJoystick() {
+    return deadzone(driver.getY(Hand.kRight), 0.1);
+  }
 }
