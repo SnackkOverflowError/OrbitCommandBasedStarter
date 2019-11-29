@@ -9,7 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.subsystems.Claw.Position;
+import frc.robot.subsystems.ClawSubsystem.Position;
 
 public class SetClawCommand extends Command {
   private Position pos;
