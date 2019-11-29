@@ -1,13 +1,14 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.DriveCommand;
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.Victor;
 
@@ -25,19 +26,6 @@ public class DrivetrainSubsystem extends Subsystem {
 
   public WPI_VictorSPX victorL;
   public WPI_VictorSPX victorR;
-
-
-
-  //Drive function
-  public void drive(double speed, double turn){
-
-    // Setting motors
-    //motorLeft.set(speed + turn);
-    //motorRight.set(speed + turn);
-
-    talonL.set(ControlMode.PercentOutput,speed - turn);
-    talonR.set(ControlMode.PercentOutput, speed + turn);
-  }
 
   public DrivetrainSubsystem(int masterL, int masterR, int slaveL, int slaveR) {
 
@@ -67,16 +55,25 @@ public class DrivetrainSubsystem extends Subsystem {
     victorR.setInverted(true);
     this.victorL.follow(this.talonL);
     this.victorR.follow(this.talonR);
-
-    
     
   }
+  //Drive function
+  public void drive(double speed, double turn){
+    // Setting motors
+    //motorLeft.set(speed + turn);
+    //motorRight.set(speed + turn);
+    talonL.set(ControlMode.PercentOutput,speed - turn);
+    talonR.set(ControlMode.PercentOutput, speed + turn);
+  }
+
+  
 
 @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-
+    
     setDefaultCommand(new DriveCommand());
   }
+
 }
