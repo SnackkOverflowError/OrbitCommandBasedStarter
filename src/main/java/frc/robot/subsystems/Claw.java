@@ -66,11 +66,25 @@ public class Claw extends Subsystem {
       setBottomSolenoid(true);
     }
   }
+  public boolean getClaw()
+  {
+    return clawSolenoidTop.get();
+  }
+
+  public double getClawRoller()
+  {
+    return clawVictorTop.getSpeed();
+  }
+  public boolean hasBall()
+  {
+    return cargoSensor.get();
+  }
 
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new KillClawCommand());
   }
 }
